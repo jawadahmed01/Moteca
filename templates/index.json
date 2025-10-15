@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "hero_jVaWmY": {
       "type": "hero",
@@ -18,8 +19,8 @@
             "text": "<p>Browse our latest products</p>",
             "width": "fit-content",
             "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
+            "alignment": "center",
+            "type_preset": "h1",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "normal",
@@ -61,6 +62,7 @@
       "settings": {
         "media_type_1": "image",
         "media_type_2": "image",
+        "link": "",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
