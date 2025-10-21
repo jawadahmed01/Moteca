@@ -1,1 +1,206 @@
-<h1>Header Section</h1>
+<header class="site-header">
+  <div class="container">
+    <div class="header-content-wrap">
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span class="menu-icon"></span>
+        <span class="menu-icon"></span>
+        <span class="menu-icon"></span>
+      </button>
+
+      <!-- Logo -->
+      <div class="header-logo-wrap">
+        <a href="{{ routes.root_url }}">
+          {% if section.settings.logo %}
+            <img src="{{ section.settings.logo | image_url }}" alt="{{ shop.name }}">
+          {% else %}
+            <span class="site-title">{{ shop.name }}</span>
+          {% endif %}
+        </a>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="header-menu-wrap">
+        {% for link in linklists[section.settings.menu].links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      </nav>
+
+      <!-- Icons -->
+      <div class="header-icons-wrap">
+        <a href="/search"><img src="{{ section.settings.search_icon | image_url }}" alt="Search"></a>
+        <a href="/account"><img src="{{ section.settings.user_icon | image_url }}" alt="User"></a>
+        <a href="/pages/wishlist"><img src="{{ section.settings.heart_icon | image_url }}" alt="Wishlist"></a>
+        <a href="/cart"><img src="{{ section.settings.cart_icon | image_url }}" alt="Cart"></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  header {
+    padding: 15px 0;
+    background-color: var(--color-background, {{ section.settings.background_color }});
+  }
+
+  .header-content-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .header-logo-wrap {
+    width: 160px;
+    flex-shrink: 0;
+  }
+
+  .header-logo-wrap img {
+    width: 100%;
+    height: auto;
+  }
+
+  .header-menu-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .header-menu-wrap a {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text, {{ section.settings.text_color }});
+    transition: color 0.3s ease;
+  }
+
+  .header-menu-wrap a:hover {
+    color: var(--color-primary, {{ section.settings.primary_color }});
+  }
+
+  .header-icons-wrap {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .header-icons-wrap a img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .menu-icon {
+    width: 20px;
+    height: 2px;
+    background-color: var(--color-text, {{ section.settings.text_color }});
+    transition: all 0.3s ease;
+  }
+
+  @media (max-width: 992px) {
+    .header-menu-wrap {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      height: 100vh;
+      width: 70%;
+      background: var(--color-background, {{ section.settings.background_color }});
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      transition: right 0.4s ease;
+      z-index: 999;
+    }
+
+    .header-logo-wrap {
+      width: 110px;
+      flex-shrink: 0;
+    }
+
+    .header-menu-wrap.active {
+      right: 0;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+
+    .header-icons-wrap a img {
+      width: 15px;
+      height: 15px;
+    }
+
+    .header-icons-wrap {
+      gap: 10px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "image_picker",
+      "id": "search_icon",
+      "label": "Search icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "user_icon",
+      "label": "User icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "heart_icon",
+      "label": "Wishlist icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "cart_icon",
+      "label": "Cart icon"
+    },
+    {
+      "type": "color",
+      "id": "primary_color",
+      "label": "Primary color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    }
+  ]
+}
+{% endschema %}

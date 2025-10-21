@@ -20,7 +20,7 @@
       <link rel="icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/png">
     {% endif %}
 
-    {{ 'base.css.liquid' | asset_url | stylesheet_tag }}
+    {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'theme.js' | asset_url | script_tag }}
 
     {{ content_for_header }}
@@ -67,7 +67,7 @@
       {% section 'header' %}
     </header>
 
-    <main role="main">
+    <main role="main" class="page-wrapper">
       {{ content_for_layout }}
     </main>
 
