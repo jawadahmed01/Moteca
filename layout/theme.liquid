@@ -2,22 +2,79 @@
 <html lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="theme-color" content="{{ settings.primary_color }}">
 
-    <title>{{ page_title }}</title>
+    <title>
+      {{ page_title }}
+      {% if current_tags %} &ndash; {{ current_tags | join: ', ' }}{% endif %}
+      {% if current_page != 1 %} &ndash; {{ 'general.pagination.page' | t: page_number: current_page }}{% endif %}
+      {% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% if settings.favicon %}
+      <link rel="icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/png">
+    {% endif %}
+
+    {{ 'base.css.liquid' | asset_url | stylesheet_tag }}
+    {{ 'theme.js' | asset_url | script_tag }}
 
     {{ content_for_header }}
+
+    <style>
+      :root {
+        --color-primary: {{ settings.primary_color }};
+        --color-secondary: {{ settings.secondary_color }};
+        --color-background: {{ settings.background_color }};
+        --color-text: {{ settings.text_color }};
+        --font-heading: {{ settings.heading_font.family }};
+        --font-body: {{ settings.body_font.family }};
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--color-text);
+        background-color: var(--color-background);
+        font-size: {{ settings.p_size }}px;
+        margin: 0;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+        color: var(--color-primary);
+        margin: 0 0 0.5em;
+        font-weight: 700;
+      }
+
+      h1 { font-size: clamp(28px, 5vw, {{ settings.h1_size }}px); }
+      h2 { font-size: clamp(26px, 4.5vw, {{ settings.h2_size }}px); }
+      h3 { font-size: clamp(22px, 4vw, {{ settings.h3_size }}px); }
+      h4 { font-size: clamp(20px, 3.5vw, {{ settings.h4_size }}px); }
+      h5 { font-size: clamp(18px, 3vw, {{ settings.h5_size }}px); }
+      h6 { font-size: clamp(16px, 2.5vw, {{ settings.h6_size }}px); }
+      p  { font-size: clamp(14px, 2vw, {{ settings.p_size }}px); }
+    </style>
   </head>
 
   <body>
-    {% section 'header' %}
+    <header>
+      {% section 'header' %}
+    </header>
 
     <main role="main">
       {{ content_for_layout }}
     </main>
 
-    {% section 'footer' %}
-    
+    <footer>
+      {% section 'footer' %}
+    </footer>
+
     {{ content_for_footer }}
   </body>
 </html>
