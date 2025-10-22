@@ -14,8 +14,10 @@
               <div class="products-grid-image-wrap">
                 <img src="{{ product.featured_image | img_url: '600x600' }}" alt="{{ product.title }}">
 
-                {% if section.settings.show_label %}
-                  <span class="products-grid-label">{{ section.settings.label_text }}</span>
+                {% if product.compare_at_price > product.price %}
+                  {% assign discount = 100 | minus: product.price | times: 100 | divided_by: product.compare_at_price %}
+                  {% assign discount_percentage = product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price | round %}
+                  <span class="products-grid-label">-{{ discount_percentage }}%</span>
                 {% endif %}
 
                 <div class="products-grid-icons">
@@ -78,7 +80,7 @@
 }
 .products-grid-image-wrap img {
   width: 100%;
-  height: 250px;
+  height: 300px;
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
@@ -87,7 +89,7 @@
   transform: scale(1.05);
 }
 
-/* --- Label Ribbon --- */
+/* --- Label Ribbon (Discount %) --- */
 .products-grid-label {
   position: absolute;
   top: 12px;
@@ -184,7 +186,7 @@
     {
       "type": "text",
       "id": "label_text",
-      "label": "Label Text",
+      "label": "Label Text (No longer used for discount)",
       "default": "New"
     },
     {
