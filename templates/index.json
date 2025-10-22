@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "main-hero": {
+      "type": "main-hero",
+      "settings": {
+        "heading": "Welcome to Our Store",
+        "subheading": "Your journey to premium products begins here.",
+        "button_label": "Shop Now",
+        "button_link": "/collections/all",
+        "background_image": "shopify://shop_images/hero_bg.jpg"
+      }
+    }
+  },
+  "order": [
+    "main-hero"
+  ]
+}
