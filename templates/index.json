@@ -11,10 +11,17 @@
       "settings": {
         
       }
+    },
+    "products-grid": {
+      "type": "products-grid",
+      "settings": {
+        
+      }
     }
   },
   "order": [
     "main-hero",
-    "three-card-section"
+    "three-card-section",
+    "products-grid"
   ]
 }
