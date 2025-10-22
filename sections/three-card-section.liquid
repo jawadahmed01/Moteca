@@ -1,0 +1,151 @@
+<section class="three-card-section">
+  <div class="container">
+    <div class="card-row">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="{{ section.settings.card_1_image | image_url }}" alt="">
+        <div class="card-content">
+          <a href="{{ section.settings.card_1_link }}" class="btn-outline">{{ section.settings.card_1_button }}</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="{{ section.settings.card_2_image | image_url }}" alt="">
+        <div class="card-content">
+          <a href="{{ section.settings.card_2_link }}" class="btn-outline">{{ section.settings.card_2_button }}</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="{{ section.settings.card_3_image | image_url }}" alt="">
+        <div class="card-content">
+          <a href="{{ section.settings.card_3_link }}" class="btn-outline">{{ section.settings.card_3_button }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.three-card-section {
+  padding: 30px 0;
+}
+
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.card {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: transform 0.4s ease;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .card-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .card-row {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    height: 320px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Three Card Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "card_1_image",
+      "label": "Card 1 Image"
+    },
+    {
+      "type": "text",
+      "id": "card_1_button",
+      "label": "Card 1 Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "card_1_link",
+      "label": "Card 1 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_2_image",
+      "label": "Card 2 Image"
+    },
+    {
+      "type": "text",
+      "id": "card_2_button",
+      "label": "Card 2 Button Text",
+      "default": "Discover"
+    },
+    {
+      "type": "url",
+      "id": "card_2_link",
+      "label": "Card 2 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_3_image",
+      "label": "Card 3 Image"
+    },
+    {
+      "type": "text",
+      "id": "card_3_button",
+      "label": "Card 3 Button Text",
+      "default": "View All"
+    },
+    {
+      "type": "url",
+      "id": "card_3_link",
+      "label": "Card 3 Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Three Card Section"
+    }
+  ]
+}
+{% endschema %}

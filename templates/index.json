@@ -3,15 +3,18 @@
     "main-hero": {
       "type": "main-hero",
       "settings": {
-        "heading": "Welcome to Our Store",
-        "subheading": "Your journey to premium products begins here.",
-        "button_label": "Shop Now",
-        "button_link": "/collections/all",
-        "background_image": "shopify://shop_images/hero_bg.jpg"
+        
+      }
+    },
+    "three-card-section": {
+      "type": "three-card-section",
+      "settings": {
+        
       }
     }
   },
   "order": [
-    "main-hero"
+    "main-hero",
+    "three-card-section"
   ]
 }
