@@ -20,19 +20,6 @@
                   <span class="products-grid-label">-{{ discount_percentage }}%</span>
                 {% endif %}
 
-                <div class="products-grid-icons">
-                  <div class="products-grid-icons-item">
-                    <img src="{{ 'shop.png' | asset_url }}" alt="Add to Cart">
-                  </div>
-                  <div class="products-grid-icons-item">
-                    <img src="{{ 'search.png' | asset_url }}" alt="View">
-                  </div>
-                  <div class="products-grid-icons-item">
-                    <img src="{{ 'heart.png' | asset_url }}" alt="Wishlist">
-                  </div>
-                </div>
-              </div>
-
               <div class="products-grid-text">
                 <h5>{{ product.title }}</h5>
                 <span>{{ product.price | money }}</span>
@@ -104,36 +91,6 @@
   z-index: 2;
 }
 
-/* Icons Hover */
-.products-grid-icons {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-}
-.products-grid-item:hover .products-grid-icons {
-  opacity: 1;
-  transform: translateY(0);
-}
-.products-grid-icons-item img {
-  width: 38px;
-  height: 38px;
-  background: var(--color-background);
-  padding: 10px;
-  border-radius: 50%;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-  transition: background 0.3s ease;
-}
-.products-grid-icons-item img:hover {
-  background: var(--color-primary);
-  filter: invert(-2) brightness(0.8);
-}
-
 /* Product Text */
 .products-grid-text {
   text-align: center;
@@ -155,6 +112,9 @@
   }
 }
 @media (max-width: 600px) {
+    .products-grid {
+  padding: 40px 0;
+}
   .products-grid-row {
     grid-template-columns: 1fr;
   }
