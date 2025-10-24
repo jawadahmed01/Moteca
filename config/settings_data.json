@@ -1,0 +1,60 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "primary_color": "#e85490",
+    "secondary_color": "#f8f8f8",
+    "text_color": "#000000",
+    "heading_font": "jost_n4",
+    "body_font": "jost_n4",
+    "h1_size": 60,
+    "h3_size": 25,
+    "h4_size": 22,
+    "h5_size": 20,
+    "favicon": "shopify://shop_images/favicon.png",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify://shop_images/logo.png",
+          "menu": "main-menu",
+          "search_icon": "shopify://shop_images/search.png",
+          "user_icon": "shopify://shop_images/user.png",
+          "heart_icon": "shopify://shop_images/heart.png",
+          "cart_icon": "shopify://shop_images/shop.png",
+          "primary_color": "#000000",
+          "text_color": "#111111",
+          "background_color": "#ffffff"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "menu_1_title": "Shop",
+          "menu_1": "main-menu",
+          "menu_2_title": "Company",
+          "menu_2": "customer-account-main-menu",
+          "social_title": "Follow Us",
+          "facebook_url": "#",
+          "instagram_url": "#",
+          "twitter_url": "#",
+          "youtube_url": "#",
+          "newsletter_title": "Newsletter",
+          "newsletter_text": "Sign up for our newsletter to get the latest updates and offers.",
+          "newsletter_button": "Subscribe",
+          "logo": "shopify://shop_images/logo.png",
+          "payment_image": "shopify://shop_images/logoo-removebg-preview.png",
+          "copyright_text": "© 2025 YourStore. All Rights Reserved."
+        }
+      }
+    },
+    "content_for_index": []
+  }
+}
