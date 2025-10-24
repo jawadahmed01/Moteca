@@ -26,6 +26,9 @@
     {{ content_for_header }}
 
     <style>
+        /* === Load Shopify-selected fonts === */
+  {{ settings.heading_font | font_face: font_display: 'swap' }}
+  {{ settings.body_font | font_face: font_display: 'swap' }}
       :root {
         --color-primary: {{ settings.primary_color }};
         --color-secondary: {{ settings.secondary_color }};
