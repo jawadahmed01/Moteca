@@ -23,12 +23,19 @@
       "settings": {
         
       }
+    },
+    "image-overlay": {
+      "type": "image-overlay",
+      "settings": {
+        
+      }
     }
   },
   "order": [
     "main-hero",
     "three-card-section",
     "products-grid",
-    "two-column-section"
+    "two-column-section",
+    "image-overlay"
   ]
 }

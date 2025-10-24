@@ -1,0 +1,222 @@
+<section class="imager-overlay">
+  <div class="container">
+    <div class="imager-overlay-content-wrap">
+      <div class="imager-overlay-left-wrap">
+        <img src="{{ section.settings.left_image | image_url }}" alt="">
+      </div>
+      <div class="imager-overlay-right-wrap">
+        <img src="{{ section.settings.right_image | image_url }}" alt="">
+      </div>
+
+      <div class="imager-overlay-wrap">
+        <div class="imager-overlay-text-wrap">
+          <h2>{{ section.settings.heading }}</h2>
+          <h6>{{ section.settings.subheading }}</h6>
+        </div>
+        <div class="imager-overlay-btn-wrap">
+          <a href="{{ section.settings.button_1_link }}">{{ section.settings.button_1_text }}</a>
+          <a href="{{ section.settings.button_2_link }}">{{ section.settings.button_2_text }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.imager-overlay {
+  padding: 80px 0px;
+}
+.imager-overlay-content-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+  height: 600px;
+}
+.imager-overlay-content-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+}
+.imager-overlay-left-wrap,
+.imager-overlay-right-wrap {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+.imager-overlay-left-wrap img,
+.imager-overlay-right-wrap img {
+  transform: scale(1);
+  transition: all 0.5s ease-in-out;
+}
+.imager-overlay-left-wrap:hover img,
+.imager-overlay-right-wrap:hover img {
+  transform: scale(1.1);
+}
+.imager-overlay-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 500px;
+  padding: 40px 80px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 60px;
+}
+.imager-overlay-text-wrap {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.imager-overlay-text-wrap h6 {
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.imager-overlay-text-wrap h2,
+.imager-overlay-text-wrap h6 {
+  color: var(--color-background);
+}
+.imager-overlay-btn-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.imager-overlay-btn-wrap a {
+  color: var(--color-background);
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.imager-overlay-btn-wrap a:hover {
+  color: var(--color-primary);
+}
+.imager-overlay-btn-wrap a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: var(--color-primary);
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.imager-overlay-btn-wrap a:hover:before {
+  transform: scaleX(1);
+}
+
+/* ✅ RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .imager-overlay-content-wrap {
+    height: 500px;
+    gap: 20px;
+  }
+  .imager-overlay-wrap {
+    padding: 30px 50px;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .imager-overlay-content-wrap {
+    flex-direction: column;
+    height: auto;
+  }
+  .imager-overlay-left-wrap,
+  .imager-overlay-right-wrap {
+    width: 100%;
+    height: 300px;
+  }
+  .imager-overlay-wrap {
+    position: relative;
+    transform: none;
+    top: auto;
+    left: auto;
+    max-width: 100%;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .imager-overlay {
+    padding: 40px 0px;
+  }
+  .imager-overlay-wrap {
+    gap: 30px;
+    padding: 20px;
+  }
+  .imager-overlay-btn-wrap {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Image Overlay Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get Your Fashion Style"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "JUST FOR YOU"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Button 1 Text",
+      "default": "Clutch Bag"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Button 2 Text",
+      "default": "Saddle Bag"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Overlay Section"
+    }
+  ]
+}
+{% endschema %}
