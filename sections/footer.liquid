@@ -1,0 +1,317 @@
+<footer class="footer">
+  <!-- Top Bar -->
+  <div class="footer-top">
+    <div class="container footer-top-wrap">
+      
+      <!-- Column 1: Menu 1 -->
+      <div class="footer-col">
+        <h5>{{ section.settings.menu_1_title }}</h5>
+        <ul>
+          {% for link in linklists[section.settings.menu_1].links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Column 2: Menu 2 -->
+      <div class="footer-col">
+        <h5>{{ section.settings.menu_2_title }}</h5>
+        <ul>
+          {% for link in linklists[section.settings.menu_2].links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Column 3: Social Icons -->
+      <div class="footer-col">
+        <h5>{{ section.settings.social_title }}</h5>
+        <div class="footer-social">
+          {% if section.settings.facebook_url != blank %}
+            <a href="{{ section.settings.facebook_url }}"><i class="fa-brands fa-facebook-f"></i> <span>Facebook</span></a>
+          {% endif %}
+          {% if section.settings.instagram_url != blank %}
+            <a href="{{ section.settings.instagram_url }}"><i class="fa-brands fa-instagram"></i> <span>Instagram</span></a>
+          {% endif %}
+          {% if section.settings.twitter_url != blank %}
+            <a href="{{ section.settings.twitter_url }}"><i class="fa-brands fa-twitter"></i> <span>Twitter</span></a>
+          {% endif %}
+          {% if section.settings.youtube_url != blank %}
+            <a href="{{ section.settings.youtube_url }}"><i class="fa-brands fa-youtube"></i> <span>YouTube</span></a>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Column 4: Newsletter -->
+      <div class="footer-col">
+        <h5>{{ section.settings.newsletter_title }}</h5>
+        <p>{{ section.settings.newsletter_text }}</p>
+        <form class="footer-newsletter" method="post" action="{{ routes.newsletter_subscribe_url }}">
+          <input type="email" name="contact[email]" placeholder="Enter your email" required>
+          <button class="btn" type="submit">{{ section.settings.newsletter_button }}</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="container footer-bottom-wrap">
+      <div class="footer-logo">
+        <img src="{{ section.settings.logo | img_url: '200x' }}" alt="Logo">
+      </div>
+      <div class="footer-payments">
+        <img src="{{ section.settings.payment_image | img_url: '300x' }}" alt="Payments">
+      </div>
+      <div class="footer-copy">
+        <p>{{ section.settings.copyright_text }}</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+.footer {
+  background-color: var(--color-secondary);
+}
+
+/* ---------- TOP BAR ---------- */
+.footer-top {
+  padding: 60px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-top-wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-col h5 {
+  text-transform: uppercase;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col ul li a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: var(--color-primary);
+}
+
+/* ---------- SOCIAL ICONS ---------- */
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text);
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-social a:hover {
+  color: var(--color-primary);
+}
+
+/* ---------- NEWSLETTER ---------- */
+.footer-newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-newsletter input {
+  padding: 12px 15px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.footer-newsletter .btn {
+  background-color: var(--color-primary);
+  border: none;
+  padding: 12px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+}
+
+.footer-newsletter .btn:hover {
+  opacity: 0.8;
+}
+
+/* ---------- BOTTOM BAR ---------- */
+.footer-bottom {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 20px 0;
+}
+
+.footer-bottom-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo img {
+  max-width: 150px;
+}
+
+.footer-payments img {
+  max-width: 200px;
+}
+
+.footer-copy p {
+  color: #828282;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 992px) {
+  .footer-top-wrap {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-top-wrap {
+    flex-direction: column;
+  }
+
+  .footer-col {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-bottom-wrap {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-logo img,
+  .footer-payments img {
+    margin: 0 auto;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "menu_1_title",
+      "label": "Menu 1 Title",
+      "default": "Shop"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Menu 1"
+    },
+    {
+      "type": "text",
+      "id": "menu_2_title",
+      "label": "Menu 2 Title",
+      "default": "Company"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Menu 2"
+    },
+    {
+      "type": "text",
+      "id": "social_title",
+      "label": "Social Title",
+      "default": "Follow Us"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "Twitter URL"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube URL"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_title",
+      "label": "Newsletter Title",
+      "default": "Newsletter"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_text",
+      "label": "Newsletter Text",
+      "default": "Sign up for our newsletter to get the latest updates and offers."
+    },
+    {
+      "type": "text",
+      "id": "newsletter_button",
+      "label": "Newsletter Button Text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "payment_image",
+      "label": "Payment Icons Image"
+    },
+    {
+      "type": "textarea",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "© 2025 YourStore. All Rights Reserved."
+    }
+  ]
+}
+{% endschema %}
