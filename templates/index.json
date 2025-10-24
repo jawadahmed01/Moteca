@@ -17,11 +17,18 @@
       "settings": {
         
       }
+    },
+    "two-column-section": {
+      "type": "two-column-section",
+      "settings": {
+        
+      }
     }
   },
   "order": [
     "main-hero",
     "three-card-section",
-    "products-grid"
+    "products-grid",
+    "two-column-section"
   ]
 }
