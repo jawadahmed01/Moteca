@@ -2,7 +2,7 @@
   "name": "Default Page",
   "sections": {
     "main": {
-      "type": "main-page",
+      "type": "main-hero",
       "settings": {}
     },
     "footer": {
