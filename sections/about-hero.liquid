@@ -1,0 +1,59 @@
+<section class="about-hero">
+  <div class="container">
+    <div class="about-hero__content">
+      <h1 class="about-hero__title">{{ section.settings.title }}</h1>
+      <p class="about-hero__text">{{ section.settings.text }}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-hero {
+    background-image: url({{ section.settings.image | img_url: 'master' }});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .about-hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .about-hero__title,
+  .about-hero__text {
+    margin: 0;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "About Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}

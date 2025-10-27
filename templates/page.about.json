@@ -1,0 +1,22 @@
+{
+  "name": "About Page",
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+
+      }
+    },
+    "about-content": {
+      "type": "about-content",
+      "settings": {
+      
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {}
+    }
+  },
+  "order": ["hero", "about-content", "footer"]
+}
