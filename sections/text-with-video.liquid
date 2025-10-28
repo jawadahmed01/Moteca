@@ -1,0 +1,215 @@
+<section class="text-with-video">
+  <div class="container">
+    <div class="text-with-video-content">
+      <div class="text-with-video-text-wrap">
+        <h2>{{ section.settings.title }}</h2>
+        <p>{{ section.settings.text }}</p>
+        <a href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+      </div>
+
+      <div class="text-with-video-wrap">
+        <div class="video-thumbnail" id="videoThumbnail">
+          {% if section.settings.image != blank %}
+            <img src="{{ section.settings.image | img_url: '800x' }}" alt="Video Thumbnail">
+          {% endif %}
+          <div class="play-icon">▶</div>
+        </div>
+
+        <div class="video-popup" id="videoPopup">
+          <div class="video-popup-content">
+            <span class="close-popup" id="closePopup">×</span>
+            <iframe id="youtubeFrame" src="" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.text-with-video .container {
+  padding: 80px 0px;
+}
+
+.text-with-video-content {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  gap: 80px;
+}
+.text-with-video-text-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;    
+    gap: 30px;
+}
+.text-with-video-text-wrap h2{
+    max-width: 720px;
+}
+.text-with-video-text-wrap a {
+  display: inline-block;
+  text-decoration: none;
+  color:var(--color-primary);
+  font-weight: 500;
+  position: relative;
+}
+..text-with-video-text-wrap a:before{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-primary);
+    bottom: 0;
+    left: 0;
+    transition: 0.3s;
+}
+.text-with-video-text-wrap a:hover:before{
+    width: 100%;
+}
+
+/* Video Section */
+.video-thumbnail {
+  position: relative;
+  cursor: pointer;
+  height: 550px;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: block;
+  border-radius: 12px;
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Popup */
+.video-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.video-popup-content {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.video-popup-content iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+}
+
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const videoPopup = document.getElementById("videoPopup");
+  const closePopup = document.getElementById("closePopup");
+  const videoThumbnail = document.getElementById("videoThumbnail");
+  const youtubeFrame = document.getElementById("youtubeFrame");
+
+  if (videoThumbnail && youtubeFrame) {
+    videoThumbnail.addEventListener("click", () => {
+      const videoUrl = "{{ section.settings.video_url | replace: 'watch?v=', 'embed/' }}?autoplay=1";
+      youtubeFrame.src = videoUrl;
+      videoPopup.style.display = "flex";
+    });
+
+    closePopup.addEventListener("click", () => {
+      videoPopup.style.display = "none";
+      youtubeFrame.src = "";
+    });
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Text with Video Popup",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Unique & Stylish Fashion — We Are An Awesome Agency."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "I am a highly organised and motivated professional Fashion Designer with a wealth of experience in a range of photographic styles and services."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Text",
+      "default": "Explore More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Thumbnail Image"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "YouTube Video URL",
+      "default": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text with Video Popup"
+    }
+  ]
+}
+{% endschema %}

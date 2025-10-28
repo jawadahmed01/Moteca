@@ -29,7 +29,10 @@
     text-align: center;
     max-width: 600px;
     margin: auto;
-    
+    color: var(--color-background);
+  }
+  .about-hero__title{
+    color:var(--color-background);
   }
 </style>
 
@@ -40,17 +43,19 @@
     {
       "type": "text",
       "id": "title",
-      "label": "Title"
+      "label": "Title",
+      "default": "About Us"
     },
     {
       "type": "textarea",
       "id": "text",
-      "label": "Text"
+      "label": "Text",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc id aliquet lacinia, nisl nunc tincidunt nunc, id lacinia nunc nunc id nunc. Nullam auctor, nunc id aliquet lacinia, nisl nunc tincidunt nunc, id lacinia nunc nunc id nunc."
     },
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Image"
+      "label": "Image",
     }
   ],
   "presets": [

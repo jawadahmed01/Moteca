@@ -3,7 +3,11 @@
     "about-hero": {
       "type": "about-hero",
       "settings": {}
+    },
+    "text-with-video": {
+      "type": "text-with-video",
+      "settings": {}
     }
   },
-  "order": ["about-hero"]
+  "order": ["about-hero", "text-with-video"]
 }
