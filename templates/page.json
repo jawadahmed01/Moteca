@@ -4,11 +4,7 @@
     "main": {
       "type": "main-hero",
       "settings": {}
-    },
-    "footer": {
-      "type": "footer",
-      "settings": {}
     }
   },
-  "order": ["main", "footer"]
+  "order": ["main"]
 }

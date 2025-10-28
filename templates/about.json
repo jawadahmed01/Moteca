@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "about-hero": {
+      "type": "about-hero",
+      "settings": {}
+    }
+  },
+  "order": ["about-hero"]
+}
