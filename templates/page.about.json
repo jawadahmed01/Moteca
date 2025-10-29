@@ -7,7 +7,11 @@
     "text-with-video": {
       "type": "text-with-video",
       "settings": {}
+    },
+    "team": {
+      "type": "team",
+      "settings": {}
     }
   },
-  "order": ["about-hero", "text-with-video"]
+  "order": ["about-hero", "text-with-video", "team"]
 }

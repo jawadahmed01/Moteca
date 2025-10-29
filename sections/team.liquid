@@ -1,0 +1,146 @@
+<section class="team">
+  <div class="container">
+    <div class="team-content-wrap">
+      <div class="team-heading-wrap">
+        <h2>{{ section.settings.heading }}</h2>
+        <p>{{ section.settings.text }}</p>
+      </div>
+
+      <div class="team-slider splide" id="teamSplide">
+        <div class="splide__track">
+          <ul class="splide__list">
+            {% for block in section.blocks %}
+              <li class="splide__slide team-slider-item">
+                <div class="team-card">
+                  {% if block.settings.image != blank %}
+                    <img src="{{ block.settings.image | img_url: '400x400' }}" alt="{{ block.settings.name }}">
+                  {% endif %}
+                  <h4>{{ block.settings.name }}</h4>
+                  <p>{{ block.settings.role }}</p>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.team {
+  padding: 80px 0;
+}
+.team-content-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.team-heading-wrap {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+.team-card:hover {
+  transform: translateY(-4px);
+}
+.team-card img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Splide layout */
+.splide__slide {
+  display: flex;
+  justify-content: center;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof Splide !== 'undefined') {
+    new Splide('#teamSplide', {
+      type: 'loop',
+      perPage: 3,
+      focus: 'center',
+      gap: '2rem',
+      autoplay: true,
+      pauseOnHover: true,
+      breakpoints: {
+        1024: { perPage: 2 },
+        640: { perPage: 1 }
+      }
+    }).mount();
+  } else {
+    console.error('Splide is not loaded. Please include Splide JS and CSS in theme.liquid.');
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Team Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Meet Our Teams"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Subheading",
+      "default": "Donec sed odio dui. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "team_member",
+      "name": "Team Member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Member Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "John Doe"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role",
+          "default": "Creative Director"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Team Slider",
+      "category": "About"
+    }
+  ]
+}
+{% endschema %}
