@@ -18,8 +18,15 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
   }
-
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3); /* adjustable opacity */
+  z-index: 1;
+}
   .about-hero__content {
     display: flex;
     flex-direction: column;
@@ -30,9 +37,18 @@
     max-width: 600px;
     margin: auto;
     color: var(--color-background);
+    z-index: 2 !important;
+    position: relative;
+    
   }
   .about-hero__title{
     color:var(--color-background);
+  }
+  @media screen (max-width:768px) {
+    .about-hero {
+    height: 100%;
+    padding:80px 0px;
+  }
   }
 </style>
 
