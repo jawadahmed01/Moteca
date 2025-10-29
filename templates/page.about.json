@@ -13,7 +13,8 @@
       "type": "about-hero",
       "settings": {
         "title": "About Us",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc id aliquet lacinia, nisl nunc tincidunt nunc, id lacinia nunc nunc id nunc. Nullam auctor, nunc id aliquet lacinia, nisl nunc tincidunt nunc, id lacinia nunc nunc id nunc."
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc id aliquet lacinia, nisl nunc tincidunt nunc, id lacinia nunc nunc id nunc. Nullam auctor, nunc id aliquet lacinia, nisl nunc tincidunt nunc, id lacinia nunc nunc id nunc.",
+        "image": "shopify://shop_images/ba18.webp"
       }
     },
     "text-with-video": {
@@ -23,6 +24,7 @@
         "text": "I am a highly organised and motivated professional Fashion Designer with a wealth of experience in a range of photographic styles and services. Just run your Fashion Store which will be a reflection of you a sexy and confident woman that shines with her unique style. Our goal is to make fashion as easy possible. We bring you the best of glam and sexy clothes while keeping in mind that high quality things arent always too expensive. Our goal is to make fashion as easy as possible, that is why we add carefully selected products on a daily basis, and this is essential for us. This is how you keep up with the times in style! We ship worldwide & space!",
         "button_label": "Explore More",
         "button_link": "",
+        "image": "shopify://shop_images/ba4.jpg",
         "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
       }
     },
