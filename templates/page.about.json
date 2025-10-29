@@ -1,17 +1,82 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "about-hero": {
       "type": "about-hero",
-      "settings": {}
+      "settings": {
+        "title": "About Us",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc id aliquet lacinia, nisl nunc tincidunt nunc, id lacinia nunc nunc id nunc. Nullam auctor, nunc id aliquet lacinia, nisl nunc tincidunt nunc, id lacinia nunc nunc id nunc."
+      }
     },
     "text-with-video": {
       "type": "text-with-video",
-      "settings": {}
+      "settings": {
+        "title": "Unique & Stylish Fashion — We Are An Awesome Agency.",
+        "text": "I am a highly organised and motivated professional Fashion Designer with a wealth of experience in a range of photographic styles and services. Just run your Fashion Store which will be a reflection of you a sexy and confident woman that shines with her unique style. Our goal is to make fashion as easy possible. We bring you the best of glam and sexy clothes while keeping in mind that high quality things arent always too expensive. Our goal is to make fashion as easy as possible, that is why we add carefully selected products on a daily basis, and this is essential for us. This is how you keep up with the times in style! We ship worldwide & space!",
+        "button_label": "Explore More",
+        "button_link": "",
+        "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      }
     },
     "team": {
       "type": "team",
-      "settings": {}
+      "blocks": {
+        "team_member_hxmcUD": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/16.1.jpg",
+            "name": "John Doe",
+            "role": "Creative Director"
+          }
+        },
+        "team_member_MCxtTb": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/8.1_218b428d-a403-4e09-87bd-ed6078d856e9.jpg",
+            "name": "John Doe",
+            "role": "Creative Director"
+          }
+        },
+        "team_member_VANDLy": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/15.1_e7a10228-1d49-4eed-b332-4991e1ba83d6.jpg",
+            "name": "John Doe",
+            "role": "Creative Director"
+          }
+        },
+        "team_member_icTiBy": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/1.1_f3ac5344-278c-40bd-8e8e-6bdb798404f0.jpg",
+            "name": "John Doe",
+            "role": "Creative Director"
+          }
+        }
+      },
+      "block_order": [
+        "team_member_hxmcUD",
+        "team_member_MCxtTb",
+        "team_member_VANDLy",
+        "team_member_icTiBy"
+      ],
+      "settings": {
+        "heading": "Meet Our Teams",
+        "text": "Donec sed odio dui. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo."
+      }
     }
   },
-  "order": ["about-hero", "text-with-video", "team"]
+  "order": [
+    "about-hero",
+    "text-with-video",
+    "team"
+  ]
 }
